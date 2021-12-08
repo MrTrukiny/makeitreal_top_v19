@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import Greeting from './Greeting';
 
 describe('<Greeting />', () => {
-  test('Renders "Hello People" as a text', () => {
+  test('Renders "Hello World" as a text', () => {
     // Arrange
     render(<Greeting />);
 
@@ -11,7 +11,15 @@ describe('<Greeting />', () => {
     // ... nothing
 
     // Assert
-    const helloPeopleElement = screen.getByText('Hello People!');
+    /* 
+    screen.get --> This functions will throw an error if an element is not found.
+    screen.find --> This functions will return a Promise.
+    screen.query --> This functions will NOT throw an error if an element is not found.
+    */
+    const helloPeopleElement = screen.getByText('Hello People', {
+      exact: false,
+    });
+    // expect(helloPeopleElement).not.toBeInTheDocument()
     expect(helloPeopleElement).toBeInTheDocument();
   });
 
@@ -41,7 +49,9 @@ describe('<Greeting />', () => {
     const buttonElement = screen.getByRole('button');
     userEvent.click(buttonElement);
 
-    const outputElement = screen.queryByText('good to see you', { exact: false });
-    expect(outputElement).toBeNull()
+    const outputElement = screen.queryByText('good to see you', {
+      exact: false,
+    });
+    expect(outputElement).toBeNull();
   });
 });
