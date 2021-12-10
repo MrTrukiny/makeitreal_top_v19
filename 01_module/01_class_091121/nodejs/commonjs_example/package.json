@@ -1,0 +1,14 @@
+{
+  "name": "commonjs_example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "https.js",
+  "scripts": {
+    "start": "node https.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
