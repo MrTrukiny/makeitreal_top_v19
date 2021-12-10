@@ -1,4 +1,5 @@
-import { Product } from '../models/products.model.js';
+// import { Product } from '../models/products.model.js';
+import { Product } from '../models/products.model.promise.js';
 
 const getAddProduct = (req, res, next) => {
   res.render('add-product', {
@@ -18,7 +19,18 @@ const postAddProduct = (req, res, next) => {
 };
 
 const getProducts = (req, res, next) => {
-  Product.fetchAll((products) => {
+  /* Product.fetchAll((products) => {
+    res.render('shop', {
+      prods: products,
+      pageTitle: 'Shop',
+      path: '/',
+      hasProducts: products.length > 0,
+      activeShop: true,
+      productCSS: true,
+    });
+  }); */
+
+  Product.fetchAll().then((products) => {
     res.render('shop', {
       prods: products,
       pageTitle: 'Shop',

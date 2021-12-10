@@ -1,5 +1,5 @@
 {
-  "name": "mvc_basic_data_in_files",
+  "name": "arnm_product_detail",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -20,6 +20,8 @@
     "nodemon": "^2.0.15"
   },
   "nodemonConfig": {
-    "ignore": ["data/*.json"]
+    "ignore": [
+      "data/*.json"
+    ]
   }
 }
